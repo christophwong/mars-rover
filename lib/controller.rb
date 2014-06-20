@@ -29,13 +29,14 @@ class Controller
   private
 
   def parse_commands
-    @width = commands.shift.to_i
-    @height = commands.shift.to_i
+    @width = commands[0].to_i
+    @height = commands[1].to_i
     @plateau = Plateau.new({x: self.width, y: self.height})
   end
 
   def land_rovers
-    @commands.each_slice(4) do |x, y, direction, moves|
+    commands.shift(2)
+    commands.each_slice(4) do |x, y, direction, moves|
       @rovers << Rover.new({x: x.to_i, y: y.to_i, direction: direction, moves: moves})
     end
   end

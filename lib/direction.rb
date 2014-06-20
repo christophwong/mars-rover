@@ -21,6 +21,10 @@ class Direction
   def to_s
     @direction.to_s
   end
+
+  def moves_forward(x, y)
+    @direction.moves_forward(x, y)
+  end
 end
 
 
@@ -35,6 +39,10 @@ class North
 
   def to_s
     'N'
+  end
+
+  def moves_forward(x, y)
+    [x, y + 1]
   end
 end
 
@@ -51,6 +59,10 @@ class East
   def to_s
     'E'
   end
+
+  def moves_forward(x, y)
+    [x + 1, y]
+  end
 end
 
 
@@ -66,6 +78,10 @@ class South
   def to_s
     'S'
   end
+
+  def moves_forward(x, y)
+    [x, y - 1]
+  end
 end
 
 
@@ -80,6 +96,10 @@ class West
 
   def to_s
     'W'
+  end
+
+  def moves_forward(x, y)
+    [x - 1, y]
   end
 end
 

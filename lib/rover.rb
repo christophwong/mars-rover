@@ -1,5 +1,4 @@
 require_relative 'direction'
-require_relative 'north'
 
 class Rover
   attr_accessor :y, :x
@@ -39,19 +38,10 @@ class Rover
   end
 
   def moves_forward
-    case direction
-    when 'N'
-      self.y += 1
-    when 'W'
-      self.x -= 1
-    when 'S'
-      self.y -= 1
-    when 'E'
-      self.x += 1
-    end
+    self.x, self.y = @direction.moves_forward(x, y)
   end
 
   def report_location
-    "#{self.x} #{self.y} #{self.direction}"
+    "#{x} #{y} #{direction}"
   end
 end

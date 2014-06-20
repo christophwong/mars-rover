@@ -1,6 +1,6 @@
 require_relative 'plateau'
 require_relative 'rover'
-
+require_relative 'direction'
 class Controller
   attr_accessor :commands, :width, :height, :rovers
 

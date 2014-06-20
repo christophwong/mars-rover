@@ -13,3 +13,4 @@ end
 
 require File.expand_path('../../lib/rover', __FILE__)
 require File.expand_path('../../lib/controller', __FILE__)
+require File.expand_path('../../lib/direction', __FILE__)

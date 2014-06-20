@@ -13,4 +13,14 @@ describe Controller do
     expect(Rover).to receive(:new).with( {x: 3, y: 3, direction: "E", moves:"MMRMMRMRRM"} )
     controller
   end
+
+  it 'should run all Rovers' do
+    expect(controller.rovers[0]).to receive(:run)
+    expect(controller.rovers[1]).to receive(:run)
+    controller.run_all_rovers
+  end
+
+  it 'should run all rovers and return final location in string form' do
+    expect(controller.mission_report).to eq("1 3 N\n5 1 E")
+  end
 end

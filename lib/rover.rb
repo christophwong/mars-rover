@@ -1,8 +1,10 @@
 class Rover
-  attr_accessor :direction
+  attr_accessor :direction, :y, :x
 
   def initialize(args)
     @direction = args[:direction]
+    @x = args[:x]
+    @y = args[:y]
   end
 
   def turn_left
@@ -21,5 +23,22 @@ class Rover
     when 'S' then 'W'
     when 'E' then 'S'
     end
+  end
+
+  def moves_forward
+    case direction
+    when 'N'
+      self.y += 1
+    when 'W'
+      self.x -= 1
+    when 'S'
+      self.y -= 1
+    when 'E'
+      self.x += 1
+    end
+  end
+
+  def report_location
+    "1 2 N"
   end
 end

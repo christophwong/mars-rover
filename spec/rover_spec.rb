@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe Rover do
-  let(:rover) { Rover.new({ x: 1, y: 2, direction: "N", moves:"LMLMLMLMM" }) }
 
   context 'when facing N' do
+  let(:rover) { Rover.new({ x: 1, y: 2, direction: "N", moves:"LMLMLMLMM" }) }
     it '#turn_left' do
       expect {rover.turn_left}.to change{ rover.direction }
       .from('N')
@@ -22,7 +22,7 @@ describe Rover do
   end
 
   context 'when facing W' do
-    before { rover.direction = 'W' }
+  let(:rover) { rover = Rover.new({ x: 1, y: 2, direction: "W", moves:"LMLMLMLMM" }) }
     it '#turn_left' do
       expect {rover.turn_left}.to change{ rover.direction }
       .from('W')
@@ -41,7 +41,7 @@ describe Rover do
   end
 
   context 'when facing S' do
-    before { rover.direction = 'S' }
+  let(:rover) { rover = Rover.new({ x: 1, y: 2, direction: "S", moves:"LMLMLMLMM" }) }
     it '#turn_left' do
       expect {rover.turn_left}.to change{ rover.direction }
       .from('S')
@@ -60,7 +60,7 @@ describe Rover do
   end
 
   context 'when facing E' do
-    before { rover.direction = 'E' }
+  let(:rover){ rover = Rover.new({ x: 1, y: 2, direction: "E", moves:"LMLMLMLMM" }) }
     it '#turn_left' do
       expect {rover.turn_left}.to change{ rover.direction }
       .from('E')
@@ -78,6 +78,7 @@ describe Rover do
     end
   end
 
+  let(:rover) { Rover.new({ x: 1, y: 2, direction: "N", moves:"LMLMLMLMM" }) }
   it 'should run according to input moves' do
     expect(rover).to receive(:turn_left).exactly(4).times
     expect(rover).to receive(:moves_forward).exactly(5).times

@@ -1,11 +1,18 @@
+require_relative 'direction'
+
 class Rover
-  attr_accessor :direction, :y, :x
+  attr_accessor :y, :x
   attr_reader :moves
+  attr_writer :direction
   def initialize(args)
-    @direction = args[:direction]
+    @direction = Direction.new(args[:direction])
     @x = args[:x]
     @y = args[:y]
     @moves = args[:moves]   #"LMLMLMLMM"
+  end
+
+  def direction
+    @direction.to_s
   end
 
   def run
@@ -23,37 +30,18 @@ class Rover
   end
 
   def turn_left
-    self.direction = case direction
-    when 'N' then 'W'
-    when 'W' then 'S'
-    when 'S' then 'E'
-    when 'E' then 'N'
-    end
+    @direction.turn_left
   end
 
   def turn_right
-    self.direction = case direction
-    when 'N' then 'E'
-    when 'W' then 'N'
-    when 'S' then 'W'
-    when 'E' then 'S'
-    end
+    @direction.turn_right
   end
 
   def moves_forward
-    case direction
-    when 'N'
-      self.y += 1
-    when 'W'
-      self.x -= 1
-    when 'S'
-      self.y -= 1
-    when 'E'
-      self.x += 1
-    end
+    self.x, self.y = @direction.moves_forward(x, y)
   end
 
   def report_location
-    "#{self.x} #{self.y} #{self.direction}"
+    "#{x} #{y} #{direction}"
   end
 end

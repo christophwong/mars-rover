@@ -84,8 +84,13 @@ describe Rover do
     rover.run
   end
 
-  it 'should report location' do
+  it 'should report correct location' do
     expect(rover.report_location).to eq("1 2 N")
+  end
+
+  it 'should report new location after full run' do
+    rover.run
+    expect(rover.report_location).to eq("1 3 N")
   end
 
 end

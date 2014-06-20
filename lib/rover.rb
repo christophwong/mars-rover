@@ -54,6 +54,6 @@ class Rover
   end
 
   def report_location
-    "1 2 N"
+    "#{self.x} #{self.y} #{self.direction}"
   end
 end

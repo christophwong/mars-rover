@@ -78,8 +78,14 @@ describe Rover do
     end
   end
 
+  it 'should run according to input moves' do
+    expect(rover).to receive(:turn_left).exactly(4).times
+    expect(rover).to receive(:moves_forward).exactly(5).times
+    rover.run
+  end
 
   it 'should report location' do
     expect(rover.report_location).to eq("1 2 N")
   end
+
 end

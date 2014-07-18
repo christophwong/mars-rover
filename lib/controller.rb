@@ -6,7 +6,7 @@ class Controller
 
   def initialize(input)
     @commands = input.split #["5", "5", "1", "2", "N", "LMLMLMLMM", "3", "3", "E", "MMRMMRMRRM"]
-    parse_commands
+    # parse_commands
     @rovers = []
     land_rovers
   end
@@ -28,11 +28,12 @@ class Controller
 
   private
 
-  def parse_commands
-    @width = commands[0].to_i
-    @height = commands[1].to_i
-    @plateau = Plateau.new({x: self.width, y: self.height})
-  end
+#TODO: to implement boundaries on rovers.
+  # def parse_commands
+  #   @width = commands[0].to_i
+  #   @height = commands[1].to_i
+  #   @plateau = Plateau.new({x: self.width, y: self.height})
+  # end
 
   def land_rovers
     commands.shift(2)
